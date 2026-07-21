@@ -1,0 +1,48 @@
+---
+interface Props {
+    title: string;
+    detail: string;
+}
+
+const { title, detail } = Astro.props;
+---
+
+<div class="leader-row">
+    <span class="title"><slot name="title">{title}</slot></span>
+    <span class="leader"></span>
+    <span class="detail"><slot name="detail">{detail}</slot></span>
+</div>
+
+<style>
+    .leader-row {
+        display: flex;
+        align-items: baseline;
+        gap: 0.4em;
+    }
+
+    .title {
+        white-space: nowrap;
+    }
+
+    .detail {
+        white-space: nowrap;
+        color: var(--fg-2);
+    }
+
+    .leader {
+        flex: 1;
+        border-bottom: 1.5px dotted currentColor;
+        margin-bottom: 4px;
+        color: var(--fg-3);
+    }
+
+    @media (max-width: 32rem) {
+        .detail {
+            display: none;
+        }
+
+        .leader {
+            display: none;
+        }
+    }
+</style>

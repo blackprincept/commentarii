@@ -1,0 +1,39 @@
+---
+interface Props {
+    startDate: string;
+    endDate?: string;
+}
+
+function formatDate(date?: string) {
+    if (!date) return "Present";
+    const [year, month] = date.split("-");
+    const months = [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec",
+    ];
+    return `${months[parseInt(month, 10) - 1]} ${year}`;
+}
+
+const { startDate, endDate } = Astro.props;
+---
+
+<span class="entry-date">
+    {formatDate(startDate)} – {formatDate(endDate)}
+</span>
+
+<style>
+    .entry-date {
+        color: var(--fg-3);
+        white-space: nowrap;
+    }
+</style>

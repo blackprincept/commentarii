@@ -1,0 +1,21 @@
+---
+import TerminalCursor from "../components/TerminalCursor.astro";
+import TerminalLine from "../components/TerminalLine.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const attemptedPath = Astro.url.pathname;
+---
+
+<BaseLayout>
+    <div class="container terminal">
+        <TerminalLine>cd {attemptedPath}</TerminalLine>
+
+        <p>cd: no such file or directory: {attemptedPath}</p>
+
+        <a href="/">
+            <TerminalLine>
+                <span class="command">cd</span> /<TerminalCursor />
+            </TerminalLine>
+        </a>
+    </div>
+</BaseLayout>

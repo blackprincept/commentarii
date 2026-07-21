@@ -1,0 +1,31 @@
+---
+import Route from "../components/Route.astro";
+import TerminalCursor from "../components/TerminalCursor.astro";
+import TerminalLine from "../components/TerminalLine.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { contact } from "../data/profile.ts";
+---
+
+<BaseLayout>
+    <div class="container terminal">
+        <a href="/">
+            <TerminalLine>
+                <span class="command">cd</span> ..<TerminalCursor />
+            </TerminalLine>
+        </a>
+
+        <TerminalLine>./connect --list</TerminalLine>
+
+        <nav class="terminal">
+            <a href={contact.github} target="_blank" rel="noopener noreferrer">
+                <Route>github</Route>
+            </a>
+            <a href={contact.linkedin} target="_blank" rel="noopener noreferrer">
+                <Route>linkedin</Route>
+            </a>
+            <a href=`mailto:${contact.email}`>
+                <Route>email</Route>
+            </a>
+        </nav>
+    </div>
+</BaseLayout>

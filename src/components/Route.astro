@@ -1,0 +1,30 @@
+---
+
+---
+
+<span class="route">
+    <slot />
+    <span class="prompt">&lt;</span>
+</span>
+
+<style>
+    .route {
+        position: relative;
+        display: inline-block;
+        color: var(--fg-2);
+    }
+
+    .route .prompt {
+        position: absolute;
+        opacity: 0;
+    }
+
+    .route:hover {
+        color: var(--fg);
+    }
+
+    .route:hover .prompt {
+        opacity: 1;
+        transform: translateX(0.5rem);
+    }
+</style>

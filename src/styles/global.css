@@ -1,0 +1,73 @@
+:root {
+    --bg: #0f0f0f;
+    --fg: #e8e8e8;
+    --fg-2: #aaaaaa;
+    --fg-3: #666666;
+
+    --font-mono: 'JetBrains Mono', monospace;
+    --font-size: 1rem;
+    --line-height: 1.7;
+
+    --max-width: 800px;
+    --line-gap: 1rem;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    font-family: var(--font-mono);
+    font-size: var(--font-size);
+    line-height: var(--line-height);
+    color: var(--fg);
+    background-color: var(--bg);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 1.5em;
+    font-family: var(--font-mono);
+}
+
+.terminal {
+    display: flex;
+    flex-direction: column;
+    gap: var(--line-gap)
+}
+
+a:hover .command {
+    color: darkorange;
+}

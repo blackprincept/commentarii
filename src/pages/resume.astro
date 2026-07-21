@@ -1,0 +1,153 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { experience } from "../data/experience";
+import { education } from "../data/education";
+import { skills } from "../data/skills";
+import TerminalCursor from "../components/TerminalCursor.astro";
+import TerminalLine from "../components/TerminalLine.astro";
+import TimePeriod from "../components/TimePeriod.astro";
+---
+
+<BaseLayout>
+    <div class="container terminal">
+        <a href="/">
+            <TerminalLine>
+                <span class="command">cd</span> ..<TerminalCursor />
+            </TerminalLine>
+        </a>
+
+        <TerminalLine>cat resume.md</TerminalLine>
+
+        <p># Petre Chkonia</p>
+        <p>contact@petrechkonia.com · petrechkonia.com · Tbilisi, Georgia</p>
+        <p>- - -</p>
+
+        <p>### Work Experience</p>
+        <p>- - -</p>
+        {
+            experience.map((job) => (
+                <article class="entry terminal">
+                    <div class="entry-header">
+                        <div class="terminal">
+                            <p>## {job.role}</p>
+                            <p class="entry-subtitle">
+                                {job.company}
+                                {job.location ? ` · ${job.location}` : ""}
+                            </p>
+                        </div>
+                        <TimePeriod
+                            startDate={job.startDate}
+                            endDate={job.endDate}
+                        />
+                    </div>
+
+                    <ul class="terminal">
+                        {job.highlights.map((h) => (
+                            <li>{h}</li>
+                        ))}
+                    </ul>
+                    {job.tech && (
+                        <div class="tags">
+                            {job.tech.map((t) => (
+                                <span class="tag">{t}</span>
+                            ))}
+                        </div>
+                    )}
+                </article>
+            ))
+        }
+
+        <p>- - -</p>
+        <p>### Education</p>
+        <p>- - -</p>
+        {
+            education.map((edu) => (
+                <article class="entry terminal">
+                    <div class="entry-header">
+                        <div class="terminal">
+                            <p>
+                                ## {edu.degree}
+                                {edu.field ? ` — ${edu.field}` : ""}
+                            </p>
+                            <p class="entry-subtitle">
+                                {edu.institution}
+                                {edu.location ? ` · ${edu.location}` : ""}
+                            </p>
+                        </div>
+                        <TimePeriod
+                            startDate={edu.startDate}
+                            endDate={edu.endDate}
+                        />
+                    </div>
+                    {edu.highlights && (
+                        <ul class="terminal">
+                            {edu.highlights.map((h) => (
+                                <li>{h}</li>
+                            ))}
+                        </ul>
+                    )}
+                </article>
+            ))
+        }
+
+        <p>- - -</p>
+        <p>### Skills</p>
+        <p>- - -</p>
+        <div class="skills-grid">
+            {
+                skills.map((group) => (
+                    <div class="skill-group terminal">
+                        <p>{group.category}</p>
+                        <div class="tags">
+                            {group.items.map((item) => (
+                                <span class="tag">{item}</span>
+                            ))}
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+</BaseLayout>
+
+<style>
+    .entry-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        flex-wrap: wrap;
+    }
+
+    .entry-subtitle {
+        color: var(--fg-3);
+    }
+
+    .entry-description {
+        color: var(--fg-2);
+    }
+
+    .entry ul {
+        list-style: none;
+        color: var(--fg-2);
+    }
+
+    .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .tag {
+        color: var(--fg);
+    }
+
+    .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+    }
+
+    .skills-grid p {
+        color: var(--fg-2);
+    }
+</style>

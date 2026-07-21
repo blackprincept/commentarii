@@ -1,0 +1,44 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import LeaderRow from "../components/LeaderRow.astro";
+import { readBooks } from "../data/books.ts";
+import TerminalLine from "../components/TerminalLine.astro";
+import TerminalCursor from "../components/TerminalCursor.astro";
+---
+
+<BaseLayout>
+    <div class="container terminal">
+        <a href="/">
+            <TerminalLine>
+                <span class="command">cd</span> ..<TerminalCursor />
+            </TerminalLine>
+        </a>
+
+        <TerminalLine>cat reading.log</TerminalLine>
+
+        {
+            readBooks.map(({ year, books }) => (
+                <section>
+                    <p>{year}</p>
+                    <ul class="book-list">
+                        {books.map(({ title, author }) => (
+                            <li>
+                                <LeaderRow title={title} detail={author} />
+                            </li>
+                        ))}
+                    </ul>
+                </section>
+            ))
+        }
+    </div>
+</BaseLayout>
+
+<style>
+    .book-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: var(--line-gap);
+        padding-top: var(--line-gap);
+    }
+</style>

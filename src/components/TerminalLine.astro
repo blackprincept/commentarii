@@ -1,0 +1,22 @@
+---
+
+---
+
+<p class="terminal-line">
+    <span class="prompt-static">$</span>
+    {" "}
+    <slot />
+</p>
+
+<style>
+    .terminal-line {
+        color: var(--fg-2);
+    }
+
+    .prompt-static {
+        color: var(--fg-3);
+        margin-right: 0.5em;
+        display: inline-block;
+        width: 1ch;
+    }
+</style>
