@@ -1,0 +1,1 @@
+My personal portfolio, built with Astro and deployed on GitHub Pages.
