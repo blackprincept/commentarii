@@ -84,8 +84,8 @@ export const uses: DailyTool[] = [
     {
         name: "This Website",
         specs: [
-            { label: "Hosting", value: "Debian GNU/Linux, self-hosted at home" },
             { label: "Framework", value: "Astro" },
+            { label: "Hosting", value: "GitHub Pages" },
             { label: "DNS/CDN", value: "Cloudflare" },
         ],
     },
