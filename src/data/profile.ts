@@ -6,5 +6,5 @@ export const profile = {
 export const contact = {
     email: "contact@petrechkonia.com",
     linkedin: "https://linkedin.com/in/petrechkonia",
-    github: "https://github.com/blackprincept"
+    github: "https://github.com/petrechkonia"
 }
