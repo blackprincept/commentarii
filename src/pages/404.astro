@@ -2,16 +2,14 @@
 import TerminalCursor from "../components/TerminalCursor.astro";
 import TerminalLine from "../components/TerminalLine.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
-
-const attemptedPath = Astro.url.pathname;
 ---
 
 <BaseLayout>
     <div class="container terminal">
-        <TerminalLine>cd {attemptedPath}</TerminalLine>
-
-        <p>cd: no such file or directory: {attemptedPath}</p>
-
+        <TerminalLine>cd <span id="attempted-path"></span></TerminalLine>
+        <p>
+            cd: no such file or directory: <span id="attempted-path"></span>
+        </p>
         <a href="/">
             <TerminalLine>
                 <span class="command">cd</span> /<TerminalCursor />
@@ -19,3 +17,12 @@ const attemptedPath = Astro.url.pathname;
         </a>
     </div>
 </BaseLayout>
+
+<script>
+    const path = window.location.pathname;
+    document
+        .querySelectorAll("#attempted-path")
+        .forEach((el) => {
+            el.textContent = path;
+        });
+</script>
