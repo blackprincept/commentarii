@@ -60,8 +60,7 @@ export const uses: DailyTool[] = [
             { label: "Mouse", value: "Logitech MX Ergo S — Graphite" },
             { label: "Headphones", value: "Sony WH-1000XM5" },
             { label: "E-Reader", value: "Xteink X4 (w/ crosspoint)" },
-            { label: "Controller", value: "Logitech MX Ergo S — Graphite" },
-            { label: "Desk lamp", value: "Xiaomi Monitor Light Bar" },
+            { label: "Controller", value: "8BitDo Ultimate 2c" },
         ]
     },
     {
@@ -70,9 +69,7 @@ export const uses: DailyTool[] = [
             { label: "Browser", value: "Zen" },
             { label: "Terminal", value: "Ghostty" },
             { label: "Editor", value: "VSCodium (w/ Vim Motions)" },
-            { label: "Notes", value: "Neovim" },
-            { label: "Notes on Android", value: "Markor" },
-            { label: "Device Sync", value: "Syncthing" },            { label: "Music Player", value: "Cmus" },
+            { label: "Notes", value: "Neovim / Markor" },
             { label: "WM on Mac", value: "Aerospace" },
             { label: "Reader", value: "Readest" },
             { label: "VPN", value: "Mullvad" },
